@@ -15,6 +15,8 @@ class CreatePrixTarif extends Migration
     {
         Schema::create('prixTarif', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('Code_produit');
+            $table->float('prixTarif');
             $table->timestamps();
         });
     }
