@@ -15,6 +15,16 @@ class CreateStocks extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('Reference');
+            $table->string('Stock_Allemagne');
+            $table->string('Stock_France');
+            $table->string('Stock_Pays Bas');
+            $table->string('Reappro_Allemagne');
+            $table->string('Reappro_Allemagne_d');
+            $table->string('Reappro_France');
+            $table->string('Reappro_France_d');
+            $table->string('Reappro_Pays_Bas');
+            $table->string('Reappro_Pays_Bas_d');
             $table->timestamps();
         });
     }
