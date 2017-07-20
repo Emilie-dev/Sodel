@@ -17,10 +17,10 @@ class CreateCommandes extends Migration
             $table->increments('id');
             $table->string('ref_Commande');
             $table->string('ref_Produit');
-            $table->string('Quantité');
+            $table->string('Quantité'); 
             $table->string('Prix');
             $table->string('Valider');
-            $table->timestamps();
+            $table->timestamps();   
         });
     }
 
