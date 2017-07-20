@@ -20,7 +20,7 @@ class CreateCommandes extends Migration
             $table->string('Quantité');
             $table->string('Prix');
             $table->string('Valider');
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 
