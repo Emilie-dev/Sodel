@@ -15,11 +15,11 @@
 			$this->orderby = "id,desc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
-			$this->button_bulk_action = true;
+			$this->button_bulk_action = false;
 			$this->button_action_style = "button_icon";
 			$this->button_add = true;
 			$this->button_edit = true;
-			$this->button_delete = true;
+			$this->button_delete = false;
 			$this->button_detail = true;
 			$this->button_show = true;
 			$this->button_filter = true;
@@ -30,7 +30,6 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Commercial","name"=>"Commercial","join"=>"cms_users,name"];
 			$this->col[] = ["label"=>"Client","name"=>"Client","join"=>"clients,Societe"];
 			$this->col[] = ["label"=>"Info","name"=>"Info"];
 			$this->col[] = ["label"=>"Date","name"=>"Date"];
@@ -39,20 +38,20 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Client','name'=>'Client','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Info','name'=>'Info','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'cms_users,name'];
+			$this->form[] = ['label'=>'Client','name'=>'Client','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'clients,Societe'];
+			$this->form[] = ['label'=>'Info','name'=>'Info','type'=>'textarea','validation'=>'required','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Date','name'=>'Date','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Heure','name'=>'Heure','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ["label"=>"Commercial","name"=>"Commercial","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Client","name"=>"Client","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Info","name"=>"Info","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Date","name"=>"Date","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Heure","name"=>"Heure","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'cms_users,name'];
+			//$this->form[] = ['label'=>'Client','name'=>'Client','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'clients,Societe'];
+			//$this->form[] = ['label'=>'Info','name'=>'Info','type'=>'textarea','validation'=>'required','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Date','name'=>'Date','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Heure','name'=>'Heure','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
 			# OLD END FORM
 
 			/* 
@@ -239,8 +238,8 @@
 	    |
 	    */
 	    public function hook_query_index(&$query) {
-	        //Your code here
-	            
+	    	
+       	        $query-> Where('RDV.Commercial', CRUDBooster::myId());
 	    }
 
 	    /*

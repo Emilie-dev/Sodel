@@ -23,7 +23,7 @@ class CreateClients extends Migration
             $table->string('Ville');
             $table->integer('Tel');
             $table->string('Email');
-            $table->string('Approuve');
+            $table->boolean('Approuve');
             $table->timestamps(); 
         });
     }

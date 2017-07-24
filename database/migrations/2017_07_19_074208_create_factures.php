@@ -16,6 +16,13 @@ class CreateFactures extends Migration
         Schema::create('factures', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->integer('Client_id');
+            $table->integer('Produits_id');
+            $table->double('Promotion')->nullable();
+            $table->integer('Quantité');
+            $table->double('Soustotal');
+            $table->double('Prix');
+            $table->boolean('Valider');
         });
     }
 

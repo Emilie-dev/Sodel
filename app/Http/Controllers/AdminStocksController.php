@@ -30,7 +30,7 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Reference","name"=>"Reference"];
+			$this->col[] = ["label"=>"Reference","name"=>"Reference","join"=>"produits,Nom"];
 			$this->col[] = ["label"=>"Stock Allemagne","name"=>"Stock_Allemagne"];
 			$this->col[] = ["label"=>"Stock France","name"=>"Stock_France"];
 			$this->col[] = ["label"=>"Stock Pays Bas","name"=>"Stock_Pays_Bas"];
@@ -41,16 +41,16 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Reference','name'=>'Reference','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Stock Allemagne','name'=>'Stock_Allemagne','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Stock France','name'=>'Stock_France','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Stock Pays Bas','name'=>'Stock_Pays_Bas','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Reappro Allemagne','name'=>'Reappro_Allemagne','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Reappro Allemagne D','name'=>'Reappro_Allemagne_d','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Reappro France','name'=>'Reappro_France','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Reappro France D','name'=>'Reappro_France_d','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Reappro Pays Bas','name'=>'Reappro_Pays_Bas','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Reappro Pays Bas D','name'=>'Reappro_Pays_Bas_d','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reference','name'=>'Reference','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'produits,Nom'];
+			$this->form[] = ['label'=>'Stock Allemagne','name'=>'Stock_Allemagne','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Stock France','name'=>'Stock_France','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Stock Pays Bas','name'=>'Stock_Pays_Bas','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro Allemagne','name'=>'Reappro_Allemagne','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro Allemagne D','name'=>'Reappro_Allemagne_d','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro France','name'=>'Reappro_France','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro France D','name'=>'Reappro_France_d','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro Pays Bas','name'=>'Reappro_Pays_Bas','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro Pays Bas D','name'=>'Reappro_Pays_Bas_d','type'=>'number','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM

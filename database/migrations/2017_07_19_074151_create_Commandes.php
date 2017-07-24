@@ -15,12 +15,11 @@ class CreateCommandes extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('Commercial');
+            $table->string("client");
             $table->string('ref_Commande');
-            $table->string('ref_Produit');
-            $table->string('Quantité'); 
-            $table->string('Prix');
-            $table->string('Valider');
-            $table->timestamps();   
+            $table->double('total');
+            $table->timestamps();    
         });
     }
 

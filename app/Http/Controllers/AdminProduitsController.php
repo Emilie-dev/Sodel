@@ -13,7 +13,7 @@
 			$this->title_field = "id";
 			$this->limit = "20";
 			$this->orderby = "id,nom";
-			$this->global_privilege = false;
+			$this->global_privilege = true;
 			$this->button_table_action = true;
 			$this->button_bulk_action = true;
 			$this->button_action_style = "button_icon";
@@ -37,6 +37,7 @@
 			$this->col[] = ["label"=>"Sensibilite Aux Entrees","name"=>"Sensibilite_aux_entrees"];
 			$this->col[] = ["label"=>"Source De Courant","name"=>"Source_de_courant"];
 			$this->col[] = ["label"=>"Dimensions","name"=>"Dimensions"];
+			$this->col[] = ["label"=>"Prix","name"=>"Prix"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -49,6 +50,7 @@
 			$this->form[] = ['label'=>'Source De Courant','name'=>'Source_de_courant','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Dimensions','name'=>'Dimensions','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Poids','name'=>'Poids','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Prix','name'=>'Prix','validation'=>'required','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM

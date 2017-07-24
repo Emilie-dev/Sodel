@@ -23,6 +23,7 @@ class CreateProduits extends Migration
             $table->string('Source_de_courant');
             $table->string('Dimensions');
             $table->string('Poids');
+            $table->double('Prix');            
             $table->timestamps();
         });
     }

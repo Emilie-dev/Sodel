@@ -1,70 +1,59 @@
 <?php namespace App\Http\Controllers;
 
-use Session;
-use Request;
-use DB;
-use CRUDBooster;
+	use Session;
+	use Request;
+	use DB;
+	use CRUDBooster;
 
-class AdminCommandeClientController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminCommerciauxController extends \crocodicstudio\crudbooster\controllers\CBController {
 
-	public function cbInit() {
+	    public function cbInit() {
 
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->title_field = "Societe";
+			$this->title_field = "name";
 			$this->limit = "20";
 			$this->orderby = "id,desc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
-			$this->button_bulk_action = ture;
+			$this->button_bulk_action = true;
 			$this->button_action_style = "button_icon";
 			$this->button_add = true;
 			$this->button_edit = true;
-			$this->button_delete = false;
+			$this->button_delete = true;
 			$this->button_detail = true;
 			$this->button_show = true;
 			$this->button_filter = true;
 			$this->button_import = false;
-			$this->button_export = true;
-			$this->table = "commandes";
+			$this->button_export = false;
+			$this->table = "cms_users";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Commercial","name"=>"Commercial","join"=>"cms_users,name"];
-			$this->col[] = ["label"=>"Client","name"=>"client","join"=>"clients,Societe"];
-			$this->col[] = ["label"=>"Commande","name"=>"ref_Commande"];
-			$this->col[] = ["label"=>"Total","name"=>"total"];
+			$this->col[] = ["label"=>"Name","name"=>"name"];
+			$this->col[] = ["label"=>"Photo","name"=>"photo","image"=>true];
+			$this->col[] = ["label"=>"Email","name"=>"email"];
+			$this->col[] = ["label"=>"Privileges","name"=>"id_cms_privileges","join"=>"cms_privileges,name"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'cms_users,name'];
-			$this->form[] = ['label'=>'Client','name'=>'client','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'clients,Societe'];
-			$this->form[] = ['label'=>'Ref Commande','name'=>'ref_Commande','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
-			$columns=[];
-			$columns[] = ['label'=>'Produit','name'=>'Produits_id','type'=>'datamodal','datamodal_table'=>'produits','datamodal_columns'=>'Nom,Prix','datamodal_select_to'=>'Prix:Prix','datamodal_where'=>'','datamodal_size'=>'large'];
-			$columns[] = ['label'=>'Prix','name'=>'Prix','type'=>'number','required'=>true, readonly=>true];
-			$columns[] = ['label'=>'Quantité','name'=>'Quantité','type'=>'number','required'=>true];
-			$columns[] = ['label'=>'Promotion','name'=>'Promotion','type'=>'number','required'=>false];
-			$columns[] = ['label'=>'SousTotal','name'=>'Soustotal','type'=>'number','formula'=>"[Quantité] * [Prix] - [Promotion]","readonly"=>true,'required'=>true];
-			$this->form[] = ['label'=>'Facture','name'=>'factures','type'=>'child','columns'=>$columns,'table'=>'factures','foreign_key'=>'Client_id'];
-			$this->form[] = ['label'=>'Total','name'=>'total','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Name','name'=>'name','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
+			$this->form[] = ['label'=>'Photo','name'=>'photo','type'=>'upload','validation'=>'required|image|max:3000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
+			$this->form[] = ['label'=>'Email','name'=>'email','type'=>'email','validation'=>'required|min:1|max:255|email|unique:cms_users','width'=>'col-sm-10','placeholder'=>'Please enter a valid email address'];
+			$this->form[] = ['label'=>'Password','name'=>'password','type'=>'password','validation'=>'min:3|max:32','width'=>'col-sm-10','help'=>'Minimum 5 characters. Please leave empty if you did not change the password.'];
+			$this->form[] = ['label'=>'Cms Privileges','name'=>'id_cms_privileges','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'cms_privileges,name','datatable_exception'=>'cms_privileges,Super Administrator'];
+			$this->form[] = ['label'=>'Status','name'=>'status','type'=>'hidden','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'cms_users,name'];
-			//$this->form[] = ['label'=>'Client','name'=>'client','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'clients,Societe'];
-			//$this->form[] = ['label'=>'Ref Commande','name'=>'ref_Commande','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
-			//$columns=[];
-			//$columns[] = ['label'=>'Produit','name'=>'Produits_id','type'=>'datamodal','datamodal_table'=>'produits','datamodal_columns'=>'Nom,Prix','datamodal_select_to'=>'Prix:Prix','datamodal_where'=>'','datamodal_size'=>'large'];
-			//$columns[] = ['label'=>'Prix','name'=>'Prix','type'=>'number','required'=>true];
-			//$columns[] = ['label'=>'Quantité','name'=>'Quantité','type'=>'number','required'=>true];
-			//$columns[] = ['label'=>'Promotion','name'=>'Promotion','type'=>'number','required'=>false];
-			//$columns[] = ['label'=>'SousTotal','name'=>'Soustotal','type'=>'number','formula'=>"[Quantité] * [Prix] - [Promotion]","readonly"=>true,'required'=>true];
-			//$this->form[] = ['label'=>'Facture','name'=>'factures','type'=>'child','columns'=>$columns,'table'=>'factures','foreign_key'=>'Client_id'];
-			//
-			//$this->form[] = ['label'=>'Total','name'=>'total','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Name','name'=>'name','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
+			//$this->form[] = ['label'=>'Photo','name'=>'photo','type'=>'upload','validation'=>'required|image|max:3000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
+			//$this->form[] = ['label'=>'Email','name'=>'email','type'=>'email','validation'=>'required|min:1|max:255|email|unique:cms_users','width'=>'col-sm-10','placeholder'=>'Please enter a valid email address'];
+			//$this->form[] = ['label'=>'Password','name'=>'password','type'=>'password','validation'=>'min:3|max:32','width'=>'col-sm-10','help'=>'Minimum 5 characters. Please leave empty if you did not change the password.'];
+			//$this->form[] = ['label'=>'Cms Privileges','name'=>'id_cms_privileges','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'cms_privileges,name','datatable_exception'=>'cms_privileges,id=1'];
+			//$this->form[] = ['label'=>'Status','name'=>'status','type'=>'hidden','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			# OLD END FORM
 
 			/* 
@@ -108,7 +97,7 @@ class AdminCommandeClientController extends \crocodicstudio\crudbooster\controll
 	        */
 	        $this->button_selected = array();
 
-
+	                
 	        /* 
 	        | ---------------------------------------------------------------------- 
 	        | Add alert message to this module at overheader
@@ -118,7 +107,7 @@ class AdminCommandeClientController extends \crocodicstudio\crudbooster\controll
 	        | 
 	        */
 	        $this->alert        = array();
-
+	                
 
 	        
 	        /* 
@@ -164,18 +153,9 @@ class AdminCommandeClientController extends \crocodicstudio\crudbooster\controll
 	        | $this->script_js = "function() { ... }";
 	        |
 	        */
-	        $this->script_js = "
-				$(function (){
-					setInterval(function(){
-						var total=0;
-						$('#table-facture tbody .Soustotal').each(function(){
-							var amount= parseFloat($(this).text());
-							total +=amount;	
-						})
-						$('#total').val(total);
-				},500);
-						
-					})";
+	        $this->script_js = NULL;
+
+
             /*
 	        | ---------------------------------------------------------------------- 
 	        | Include HTML Code before index table 
@@ -248,7 +228,7 @@ class AdminCommandeClientController extends \crocodicstudio\crudbooster\controll
 	    */
 	    public function actionButtonSelected($id_selected,$button_name) {
 	        //Your code here
-
+	            
 	    }
 
 
@@ -261,8 +241,7 @@ class AdminCommandeClientController extends \crocodicstudio\crudbooster\controll
 	    */
 	    public function hook_query_index(&$query) {
 	        //Your code here
-	        $query-> Where('cms_users.email', $_COOKIE['COOKIE']);
-
+	            
 	    }
 
 	    /*
