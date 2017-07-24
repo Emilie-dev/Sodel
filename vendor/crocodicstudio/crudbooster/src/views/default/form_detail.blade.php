@@ -100,3 +100,4 @@ foreach($forms as $index=>$form):
 
 	</table>
 	</div>
+	<input id="impression" name="impression" type="button" class="btn btn-info" onclick="window.print()" value="Imprimer">

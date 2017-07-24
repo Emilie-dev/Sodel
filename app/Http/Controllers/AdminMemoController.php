@@ -31,18 +31,24 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Description","name"=>"Description"];
+			$this->col[] = ["label"=>"Destinataire","name"=>"Destinataire","join"=>"cms_users,name"];
+			$this->col[] = ["label"=>"Societe","name"=>"Societe","join"=>"clients,Societe"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
 			$this->form[] = ['label'=>'Commercial','name'=>'Commercial_id','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'cms_users,name'];
 			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Destinataire','name'=>'Destinataire','type'=>'select2','width'=>'col-sm-9','datatable'=>'cms_users,name'];
+			$this->form[] = ['label'=>'Societe','name'=>'Societe','type'=>'select2','width'=>'col-sm-9','datatable'=>'clients,Societe'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
 			//$this->form[] = ['label'=>'Commercial','name'=>'Commercial_id','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'cms_users,name'];
 			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Destinataire','name'=>'Destinataire','type'=>'select2','width'=>'col-sm-9','datatable'=>'cms_users,id'];
+			//$this->form[] = ['label'=>'Societe','name'=>'Societe','type'=>'select2','width'=>'col-sm-9','datatable'=>'clients,Societe'];
 			# OLD END FORM
 
 			/* 
