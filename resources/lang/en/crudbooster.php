@@ -106,7 +106,7 @@ return [
     'button_submit'          => 'Envoyer',
     'button_logout'          => 'Déconnexion',
     'button_sign_in'         => 'S\'identifier',
-    'button_selected_action' => 'Actions en vrac',
+    'button_selected_action' => 'Actions',
     'button_download_file'   => 'Télécharger le fichier',
     'button_reset'           => 'Réinitialiser',
 

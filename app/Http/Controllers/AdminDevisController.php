@@ -15,7 +15,7 @@
 			$this->orderby = "id,desc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
-			$this->button_bulk_action = false;
+			$this->button_bulk_action = true;
 			$this->button_action_style = "button_icon";
 			$this->button_add = true;
 			$this->button_edit = true;
@@ -47,7 +47,7 @@
 			$columns[] = ['label'=>'Promotion','name'=>'Promotion','type'=>'number','required'=>false];
 			$columns[] = ['label'=>'SousTotal','name'=>'Soustotal','type'=>'number','formula'=>"[Quantité] * [Prix] - [Promotion]","readonly"=>true,'required'=>true];
 			$this->form[] = ['label'=>'Facture','name'=>'factures','type'=>'child','columns'=>$columns,'table'=>'facturesDevis','foreign_key'=>'Client_id'];
-			$this->form[] = ['label'=>'Total','name'=>'total','type'=>'money','validation'=>'required','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Total','name'=>'total','type'=>'text','width'=>'col-sm-10', readonly=>true];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM

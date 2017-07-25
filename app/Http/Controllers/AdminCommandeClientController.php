@@ -48,7 +48,7 @@ class AdminCommandeClientController extends \crocodicstudio\crudbooster\controll
 			$columns[] = ['label'=>'Promotion','name'=>'Promotion','type'=>'number','required'=>false];
 			$columns[] = ['label'=>'SousTotal','name'=>'Soustotal','type'=>'number','formula'=>"[Quantité] * [Prix] - [Promotion]","readonly"=>true,'required'=>true];
 			$this->form[] = ['label'=>'Facture','name'=>'factures','type'=>'child','columns'=>$columns,'table'=>'factures','foreign_key'=>'Client_id'];
-			$this->form[] = ['label'=>'Total','name'=>'total','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Total','name'=>'total','type'=>'text','width'=>'col-sm-9',readonly=>true];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
