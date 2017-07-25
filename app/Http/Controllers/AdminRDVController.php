@@ -19,10 +19,10 @@
 			$this->button_action_style = "button_icon";
 			$this->button_add = true;
 			$this->button_edit = true;
-			$this->button_delete = false;
+			$this->button_delete = true;
 			$this->button_detail = true;
-			$this->button_show = true;
-			$this->button_filter = true;
+			$this->button_show = false;
+			$this->button_filter = false;
 			$this->button_import = false;
 			$this->button_export = false;
 			$this->table = "RDV";
@@ -38,11 +38,11 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'cms_users,name'];
+			$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'hidden', 'value'=>CRUDBooster::myId(),'validation'=>'required','width'=>'col-sm-9','datatable'=>'cms_users,name'];
 			$this->form[] = ['label'=>'Client','name'=>'Client','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'clients,Societe'];
 			$this->form[] = ['label'=>'Info','name'=>'Info','type'=>'textarea','validation'=>'required','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Date','name'=>'Date','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Heure','name'=>'Heure','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Date','name'=>'Date','type'=>'date','validation'=>'required','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Heure','name'=>'Heure','type'=>'time','validation'=>'required','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM

@@ -6,7 +6,6 @@
 	use CRUDBooster;
 
 	class AdminClients29Controller extends \crocodicstudio\crudbooster\controllers\CBController {
-
 	    public function cbInit() {
 
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
@@ -22,9 +21,9 @@
 			$this->button_delete = false;
 			$this->button_detail = true;
 			$this->button_show = true;
-			$this->button_filter = true;
+			$this->button_filter = false;
 			$this->button_import = false;
-			$this->button_export = true;
+			$this->button_export = false;
 			$this->table = "clients";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
@@ -36,9 +35,10 @@
 			$this->col[] = ["label"=>"Cp","name"=>"Cp"];
 			$this->col[] = ["label"=>"Ville","name"=>"Ville"];
 			$this->col[] = ["label"=>"Tel","name"=>"Tel"];
-			$this->col[] = ["label"=>"Commandes","name"=>"Societe","join"=>"commandes,client"];
-			$this->col[] = ["label"=>"RDV","name"=>"Societe","join"=>"RDV,Info"];
-			$this->col[] = ["label"=>"Notes","name"=>"Societe","join"=>"memo,Societe"];
+			$this->col[] = ["label"=>"Nombre de commande", "name"=>"(select count(id) from commandes where commandes.client= clients.id) as commande"];
+			$this->col[] = ["label"=>"Rendez-vous", "name"=>"(select min(Date) from RDV where RDV.Client= clients.id or RDV.Date >=date('Y-m-d')) as rdv"];
+			$this->col[] = ["label"=>"Note", "name"=>"(select Description from memo where memo.Societe= clients.id ) as memo"];
+			
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -51,7 +51,7 @@
 			$this->form[] = ['label'=>'Ville','name'=>'Ville','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Tel','name'=>'Tel','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Email','name'=>'Email','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Approuvé','name'=>'Approuvé','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
@@ -64,7 +64,8 @@
 			//$this->form[] = ['label'=>'Ville','name'=>'Ville','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Tel','name'=>'Tel','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Email','name'=>'Email','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Approuvé','name'=>'Approuvé','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Commande','name'=>'Societe','type'=>'select2','width'=>'col-sm-10','datatable'=>'commandes,client'];
+			////	$this->form[] = ['label'=>'Facture','name'=>'factures','type'=>'child','width'=>'col-sm-10','table'=>'factures','foreign_key'=>'Client_id'];
 			# OLD END FORM
 
 			/* 

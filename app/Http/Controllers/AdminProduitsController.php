@@ -13,18 +13,18 @@
 			$this->title_field = "id";
 			$this->limit = "20";
 			$this->orderby = "id,nom";
-			$this->global_privilege = true;
+			$this->global_privilege = false;
 			$this->button_table_action = true;
-			$this->button_bulk_action = true;
+			$this->button_bulk_action = false;
 			$this->button_action_style = "button_icon";
-			$this->button_add = true;
-			$this->button_edit = true;
-			$this->button_delete = true;
+			$this->button_add = false;
+			$this->button_edit = false;
+			$this->button_delete = false;
 			$this->button_detail = true;
-			$this->button_show = true;
-			$this->button_filter = true;
+			$this->button_show = false;
+			$this->button_filter = false;
 			$this->button_import = false;
-			$this->button_export = false;
+			$this->button_export = true;
 			$this->table = "produits";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
@@ -38,6 +38,7 @@
 			$this->col[] = ["label"=>"Source De Courant","name"=>"Source_de_courant"];
 			$this->col[] = ["label"=>"Dimensions","name"=>"Dimensions"];
 			$this->col[] = ["label"=>"Prix","name"=>"Prix"];
+			$this->col[] = ["label"=>"Image","name"=>"Image"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -50,7 +51,8 @@
 			$this->form[] = ['label'=>'Source De Courant','name'=>'Source_de_courant','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Dimensions','name'=>'Dimensions','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Poids','name'=>'Poids','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Prix','name'=>'Prix','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Prix','name'=>'Prix','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
@@ -63,6 +65,7 @@
 			//$this->form[] = ['label'=>'Source De Courant','name'=>'Source_de_courant','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Dimensions','name'=>'Dimensions','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Poids','name'=>'Poids','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Prix','name'=>'Prix','validation'=>'required','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/* 

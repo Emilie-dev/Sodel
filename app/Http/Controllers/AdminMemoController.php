@@ -15,14 +15,14 @@
 			$this->orderby = "id,desc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
-			$this->button_bulk_action = true;
+			$this->button_bulk_action = false;
 			$this->button_action_style = "button_icon";
 			$this->button_add = true;
 			$this->button_edit = true;
 			$this->button_delete = true;
 			$this->button_detail = true;
-			$this->button_show = true;
-			$this->button_filter = true;
+			$this->button_show = false;
+			$this->button_filter = false;
 			$this->button_import = false;
 			$this->button_export = false;
 			$this->table = "memo";
@@ -30,6 +30,7 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
+			$this->col[] = ["label"=>"Expéditeur","name"=>"Commercial_id","join"=>"cms_users,name"];
 			$this->col[] = ["label"=>"Description","name"=>"Description"];
 			$this->col[] = ["label"=>"Destinataire","name"=>"Destinataire","join"=>"cms_users,name"];
 			$this->col[] = ["label"=>"Societe","name"=>"Societe","join"=>"clients,Societe"];
@@ -37,7 +38,7 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Commercial','name'=>'Commercial_id','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'cms_users,name'];
+			$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'hidden', 'value'=>CRUDBooster::myId(),'validation'=>'required','width'=>'col-sm-9','datatable'=>'cms_users,name'];
 			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Destinataire','name'=>'Destinataire','type'=>'select2','width'=>'col-sm-9','datatable'=>'cms_users,name'];
 			$this->form[] = ['label'=>'Societe','name'=>'Societe','type'=>'select2','width'=>'col-sm-9','datatable'=>'clients,Societe'];
