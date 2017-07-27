@@ -5,64 +5,66 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminClients23Controller extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminStocks31Controller extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function cbInit() {
 
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->title_field = "Societe";
-			$this->limit = "200";
-			$this->orderby = "Societe";
-			$this->global_privilege = true;
+			$this->title_field = "id";
+			$this->limit = "20";
+			$this->orderby = "id,desc";
+			$this->global_privilege = false;
 			$this->button_table_action = true;
 			$this->button_bulk_action = false;
 			$this->button_action_style = "button_icon";
 			$this->button_add = true;
 			$this->button_edit = true;
 			$this->button_delete = true;
-			$this->button_detail = false;
+			$this->button_detail = true;
 			$this->button_show = false;
-			$this->button_filter = false;
+			$this->button_filter = true;
 			$this->button_import = false;
-			$this->button_export = true;
-			$this->table = "clients";
+			$this->button_export = false;
+			$this->table = "stocks";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Commercial","name"=>"Commercial","join"=>"cms_users,name"];
-			$this->col[] = ["label"=>"Societe","name"=>"Societe"];
-			$this->col[] = ["label"=>"Contact","name"=>"Contact"];
-			$this->col[] = ["label"=>"Adresse","name"=>"Adresse"];
-			$this->col[] = ["label"=>"Cp","name"=>"Cp"];
-			$this->col[] = ["label"=>"Ville","name"=>"Ville"];
-			$this->col[] = ["label"=>"Tel","name"=>"Tel"];
+			$this->col[] = ["label"=>"Reference","name"=>"Reference","join"=>"produits,Nom"];
+			$this->col[] = ["label"=>"Stock Allemagne","name"=>"Stock_Allemagne"];
+			$this->col[] = ["label"=>"Stock France","name"=>"Stock_France"];
+			$this->col[] = ["label"=>"Stock Pays Bas","name"=>"Stock_Pays Bas"];
+			$this->col[] = ["label"=>"Reappro Allemagne","name"=>"Reappro_Allemagne"];
+			$this->col[] = ["label"=>"Reappro Allemagne D","name"=>"Reappro_Allemagne_d"];
+			$this->col[] = ["label"=>"Reappro France","name"=>"Reappro_France"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Societe','name'=>'Societe','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Contact','name'=>'Contact','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Adresse','name'=>'Adresse','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Cp','name'=>'Cp','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Ville','name'=>'Ville','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Tel','name'=>'Tel','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Email','name'=>'Email','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Approuve','name'=>'Approuve','type'=>'checkbox','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reference','name'=>'Reference','type'=>'select2','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Stock Allemagne','name'=>'Stock_Allemagne','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Stock France','name'=>'Stock_France','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Stock Pays Bas','name'=>'Stock_Pays Bas','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro Allemagne','name'=>'Reappro_Allemagne','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro Allemagne D','name'=>'Reappro_Allemagne_d','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro France','name'=>'Reappro_France','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro France D','name'=>'Reappro_France_d','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro Pays Bas','name'=>'Reappro_Pays_Bas','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro Pays Bas D','name'=>'Reappro_Pays_Bas_d','type'=>'number','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ["label"=>"Commercial","name"=>"Commercial","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Societe","name"=>"Societe","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Contact","name"=>"Contact","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Adresse","name"=>"Adresse","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Cp","name"=>"Cp","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0"];
-			//$this->form[] = ["label"=>"Ville","name"=>"Ville","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Tel","name"=>"Tel","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0"];
-			//$this->form[] = ["label"=>"Email","name"=>"Email","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Approuve","name"=>"Approuve","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Reference","name"=>"Reference","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Stock Allemagne","name"=>"Stock_Allemagne","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Stock France","name"=>"Stock_France","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Stock Pays Bas","name"=>"Stock_Pays Bas","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Reappro Allemagne","name"=>"Reappro_Allemagne","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Reappro Allemagne D","name"=>"Reappro_Allemagne_d","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Reappro France","name"=>"Reappro_France","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Reappro France D","name"=>"Reappro_France_d","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Reappro Pays Bas","name"=>"Reappro_Pays_Bas","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Reappro Pays Bas D","name"=>"Reappro_Pays_Bas_d","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
 			# OLD END FORM
 
 			/* 

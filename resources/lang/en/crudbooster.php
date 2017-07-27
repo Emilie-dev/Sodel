@@ -79,7 +79,7 @@ return [
 
     'default_module_description' => 'Liste des données',
 
-    'delete_description_confirm' => "Vous ne pourrez pas récupérer ces données d'enregistrement!",
+    'delete_description_confirm' => "Vous ne pourrez pas récupérer ces données d enregistrement!",
     'delete_title_confirm'       => "Êtes-vous sûr?",
 
 

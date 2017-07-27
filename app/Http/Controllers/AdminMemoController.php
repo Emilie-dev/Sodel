@@ -38,7 +38,7 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'hidden', 'value'=>CRUDBooster::myId(),'validation'=>'required','width'=>'col-sm-9','datatable'=>'cms_users,name'];
+			$this->form[] = ['label'=>'Commercial','name'=>'Commercial_id','type'=>'hidden', 'value'=>CRUDBooster::myId(),'validation'=>'required','width'=>'col-sm-9','datatable'=>'cms_users,name'];
 			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Destinataire','name'=>'Destinataire','type'=>'select2','width'=>'col-sm-9','datatable'=>'cms_users,name'];
 			$this->form[] = ['label'=>'Societe','name'=>'Societe','type'=>'select2','width'=>'col-sm-9','datatable'=>'clients,Societe'];
