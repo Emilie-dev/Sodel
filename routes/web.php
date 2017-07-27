@@ -16,3 +16,5 @@ Route::get('/', function () {
 	return redirect('/admin/login');
 
 });
+Route::get('/admin/commercial', 'CommercialController@getClients');
+Route::get('/admin/commercial/commande', 'CommercialController@getCommande');
