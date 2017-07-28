@@ -14,13 +14,13 @@
 			$this->limit = "20";
 			$this->orderby = "id,desc";
 			$this->global_privilege = false;
-			$this->button_table_action = false;
+			$this->button_table_action = true;
 			$this->button_bulk_action = true;
 			$this->button_action_style = "button_icon";
 			$this->button_add = true;
 			$this->button_edit = true;
 			$this->button_delete = false;
-			$this->button_detail = false;
+			$this->button_detail = true;
 			$this->button_show = false;
 			$this->button_filter = false;
 			$this->button_import = false;
@@ -42,7 +42,7 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'hidden','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'hidden', 'value'=>CRUDBooster::myId(),'validation'=>'required','width'=>'col-sm-9','datatable'=>'cms_users,name'];
 			$this->form[] = ['label'=>'Societe','name'=>'Societe','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Contact','name'=>'Contact','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Adresse','name'=>'Adresse','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
@@ -54,7 +54,7 @@
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'hidden', 'value'=>CRUDBooster::myId(),'validation'=>'required','width'=>'col-sm-9','datatable'=>'cms_users,name'];
+			//$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'hidden','value'=>CRUDBooster::myId(),'validation'=>'required','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Societe','name'=>'Societe','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Contact','name'=>'Contact','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Adresse','name'=>'Adresse','type'=>'text','validation'=>'required','width'=>'col-sm-9'];

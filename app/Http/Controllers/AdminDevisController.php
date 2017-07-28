@@ -37,25 +37,32 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'hidden', 'value'=>CRUDBooster::myId(),'validation'=>'required','width'=>'col-sm-9','datatable'=>'cms_users,name'];
-			$this->form[] = ['label'=>'Client','name'=>'client','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'clients,Societe'];
-			$this->form[] = ['label'=>'Ref Devis','name'=>'ref_Devis','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
-				$columns=[];
-			$columns[] = ['label'=>'Produit','name'=>'Produits_id','type'=>'datamodal','datamodal_table'=>'produits','datamodal_columns'=>'Nom,Prix','datamodal_select_to'=>'Prix:Prix','datamodal_where'=>'','datamodal_size'=>'large'];
-			$columns[] = ['label'=>'Prix','name'=>'Prix','type'=>'number','required'=>true, readonly=>true];
-			$columns[] = ['label'=>'Quantité','name'=>'Quantité','type'=>'number','required'=>true];
-			$columns[] = ['label'=>'Promotion','name'=>'Promotion','type'=>'number','required'=>false];
-			$columns[] = ['label'=>'SousTotal','name'=>'Soustotal','type'=>'number','formula'=>"[Quantité] * [Prix] - [Promotion]","readonly"=>true,'required'=>true];
-			$this->form[] = ['label'=>'Facture','name'=>'factures','type'=>'child','columns'=>$columns,'table'=>'facturesDevis','foreign_key'=>'Client_id'];
-			$this->form[] = ['label'=>'Total','name'=>'total','type'=>'text','width'=>'col-sm-10', readonly=>true];
+            $this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'hidden', 'value'=>CRUDBooster::myId(),'validation'=>'required','width'=>'col-sm-9','datatable'=>'cms_users,name'];
+            $this->form[] = ['label'=>'Client','name'=>'client','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'clients,Societe'];
+            $this->form[] = ['label'=>'Ref Devis','name'=>'ref_Devis','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
+                $columns=[];
+            $columns[] = ['label'=>'Produit','name'=>'Produits_id','type'=>'datamodal','datamodal_table'=>'produits','datamodal_columns'=>'Nom,Prix','datamodal_select_to'=>'Prix:Prix','datamodal_where'=>'','datamodal_size'=>'large'];
+            $columns[] = ['label'=>'Prix','name'=>'Prix','type'=>'number','required'=>true, readonly=>true];
+            $columns[] = ['label'=>'Quantité','name'=>'Quantité','type'=>'number','required'=>true];
+            $columns[] = ['label'=>'Promotion','name'=>'Promotion','type'=>'number','required'=>false];
+            $columns[] = ['label'=>'SousTotal','name'=>'Soustotal','type'=>'number','formula'=>"[Quantité] * [Prix] - [Promotion]","readonly"=>true,'required'=>true];
+            $this->form[] = ['label'=>'Facture','name'=>'factures','type'=>'child','columns'=>$columns,'table'=>'facturesDevis','foreign_key'=>'Client_id'];
+            $this->form[] = ['label'=>'Total','name'=>'total','type'=>'text','width'=>'col-sm-10', readonly=>true];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ["label"=>"Commercial","name"=>"Commercial","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Client","name"=>"client","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Ref Devis","name"=>"ref_Devis","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Total","name"=>"total","type"=>"money","required"=>TRUE,"validation"=>"required|integer|min:0"];
+			//$this->form[] = ['label'=>'Commercial','name'=>'Commercial','type'=>'hidden', 'value'=>CRUDBooster::myId(),'validation'=>'required','width'=>'col-sm-9','datatable'=>'cms_users,name'];
+			//$this->form[] = ['label'=>'Client','name'=>'client','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'clients,Societe'];
+			//$this->form[] = ['label'=>'Ref Devis','name'=>'ref_Devis','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
+			//$columns=[];
+			//$columns[] = ['label'=>'Produit','name'=>'Produits_id','type'=>'datamodal','datamodal_table'=>'produits','datamodal_columns'=>'Nom,Prix','datamodal_select_to'=>'Prix:Prix','datamodal_where'=>'','datamodal_size'=>'large'];
+			//$columns[] = ['label'=>'Prix','name'=>'Prix','type'=>'number','required'=>true, readonly=>true];
+			//$columns[] = ['label'=>'Quantité','name'=>'Quantité','type'=>'number','required'=>true];
+			//$columns[] = ['label'=>'Promotion','name'=>'Promotion','type'=>'number','required'=>false];
+			//$columns[] = ['label'=>'SousTotal','name'=>'Soustotal','type'=>'number','formula'=>"[Quantité] * [Prix] - [Promotion]","readonly"=>true,'required'=>true];
+			//$this->form[] = ['label'=>'Facture','name'=>'factures','type'=>'child','columns'=>$columns,'table'=>'facturesDevis','foreign_key'=>'Client_id'];
+			//$this->form[] = ['label'=>'Total','name'=>'total','type'=>'text','width'=>'col-sm-10', readonly=>true];
 			# OLD END FORM
 
 			/* 

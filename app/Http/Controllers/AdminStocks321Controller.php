@@ -5,15 +5,15 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminCommerciauxController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminStocks321Controller extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function cbInit() {
 
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->title_field = "name";
+			$this->title_field = "id";
 			$this->limit = "20";
 			$this->orderby = "id,desc";
-			$this->global_privilege = true;
+			$this->global_privilege = false;
 			$this->button_table_action = true;
 			$this->button_bulk_action = false;
 			$this->button_action_style = "button_icon";
@@ -24,36 +24,41 @@
 			$this->button_show = false;
 			$this->button_filter = false;
 			$this->button_import = false;
-			$this->button_export = false;
-			$this->table = "cms_users";
+			$this->button_export = true;
+			$this->table = "stocks";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Name","name"=>"name"];
-			$this->col[] = ["label"=>"Photo","name"=>"photo","image"=>true];
-			$this->col[] = ["label"=>"Email","name"=>"email"];
-			$this->col[] = ["label"=>"Privileges","name"=>"id_cms_privileges","join"=>"cms_privileges,name"];
+			$this->col[] = ["label"=>"Reference","name"=>"Reference"];
+			$this->col[] = ["label"=>"Stock Allemagne","name"=>"Stock_Allemagne"];
+			$this->col[] = ["label"=>"Stock France","name"=>"Stock_France"];
+			$this->col[] = ["label"=>"Stock Pays_Bas","name"=>"Stock_Pays_Bas"];
+			$this->col[] = ["label"=>"Reappro Allemagne","name"=>"Reappro_Allemagne"];
+			$this->col[] = ["label"=>"Reappro France","name"=>"Reappro_France"];
+			$this->col[] = ["label"=>"Reappro Pays_Bas","name"=>"Reappro_Pays_Bas"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Name','name'=>'name','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
-			$this->form[] = ['label'=>'Photo','name'=>'photo','type'=>'upload','validation'=>'required|image|max:3000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
-			$this->form[] = ['label'=>'Email','name'=>'email','type'=>'email','validation'=>'required|min:1|max:255|email|unique:cms_users','width'=>'col-sm-10','placeholder'=>'Please enter a valid email address'];
-			$this->form[] = ['label'=>'Password','name'=>'password','type'=>'password','validation'=>'min:3|max:32','width'=>'col-sm-10','help'=>'Minimum 5 characters. Please leave empty if you did not change the password.'];
-			$this->form[] = ['label'=>'Cms Privileges','name'=>'id_cms_privileges','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'cms_privileges,name','datatable_where'=>'id=2 OR id=3'];
-			$this->form[] = ['label'=>'Status','name'=>'status','type'=>'hidden','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reference','name'=>'Reference','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Stock Allemagne','name'=>'Stock_Allemagne','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Stock France','name'=>'Stock_France','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Stock Pays_Bas','name'=>'Stock_Pays_Bas','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro Allemagne','name'=>'Reappro_Allemagne','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro France','name'=>'Reappro_France','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Reappro Pays Bas','name'=>'Reappro_Pays_Bas','type'=>'number','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Name','name'=>'name','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
-			//$this->form[] = ['label'=>'Photo','name'=>'photo','type'=>'upload','validation'=>'required|image|max:3000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
-			//$this->form[] = ['label'=>'Email','name'=>'email','type'=>'email','validation'=>'required|min:1|max:255|email|unique:cms_users','width'=>'col-sm-10','placeholder'=>'Please enter a valid email address'];
-			//$this->form[] = ['label'=>'Password','name'=>'password','type'=>'password','validation'=>'min:3|max:32','width'=>'col-sm-10','help'=>'Minimum 5 characters. Please leave empty if you did not change the password.'];
-			//$this->form[] = ['label'=>'Cms Privileges','name'=>'id_cms_privileges','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'cms_privileges,name','datatable_where'=>'id=2 OR id=3'];
-			//$this->form[] = ['label'=>'Status','name'=>'status','type'=>'hidden','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Reference','name'=>'Reference','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Stock Allemagne','name'=>'Stock_Allemagne','type'=>'number','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Stock France','name'=>'Stock_France','type'=>'number','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Stock Pays Bas','name'=>'Stock_Pays Bas','type'=>'number','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Reappro Allemagne','name'=>'Reappro_Allemagne','type'=>'number','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Reappro France','name'=>'Reappro_France','type'=>'number','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Reappro Pays Bas','name'=>'Reappro_Pays_Bas','type'=>'number','width'=>'col-sm-10'];
 			# OLD END FORM
 
 			/* 
@@ -240,8 +245,8 @@
 	    |
 	    */
 	    public function hook_query_index(&$query) {
-   	        $query-> Where('is_superadmin',0);
-	        
+	        //Your code here
+	            
 	    }
 
 	    /*

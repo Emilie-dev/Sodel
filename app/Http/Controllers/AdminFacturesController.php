@@ -58,7 +58,7 @@
 			//$this->form[] = ['label'=>'Promotion','name'=>'Promotion','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Quantité','name'=>'Quantité','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Soustotal','name'=>'Soustotal','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Valider','name'=>'Valider','type'=>'hidden','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'N° Envoie','name'=>'Valider','type'=>'text','width'=>'col-sm-10'];
 			# OLD END FORM
 
 			/* 

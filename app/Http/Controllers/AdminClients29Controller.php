@@ -16,14 +16,14 @@
 			$this->button_table_action = true;
 			$this->button_bulk_action = false;
 			$this->button_action_style = "button_icon";
-			$this->button_add = true;
+			$this->button_add = false;
 			$this->button_edit = true;
 			$this->button_delete = false;
 			$this->button_detail = true;
 			$this->button_show = false;
 			$this->button_filter = false;
 			$this->button_import = false;
-			$this->button_export = false;
+			$this->button_export = true;
 			$this->table = "clients";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 

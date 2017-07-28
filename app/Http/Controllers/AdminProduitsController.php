@@ -65,7 +65,8 @@
 			//$this->form[] = ['label'=>'Source De Courant','name'=>'Source_de_courant','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Dimensions','name'=>'Dimensions','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Poids','name'=>'Poids','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Prix','name'=>'Prix','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Prix','name'=>'Prix','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/* 

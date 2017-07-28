@@ -58,7 +58,7 @@
 			//$this->form[] = ['label'=>'Reference','name'=>'Reference','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'produits,Nom'];
 			//$this->form[] = ['label'=>'Stock Allemagne','name'=>'Stock_Allemagne','type'=>'number','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Stock France','name'=>'Stock_France','type'=>'number','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Stock Pays Bas','name'=>'Stock_Pays_Bas','type'=>'number','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Stock Pays Bas','name'=>'Stock_Pays Bas','type'=>'number','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Reappro Allemagne','name'=>'Reappro_Allemagne','type'=>'number','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Reappro Allemagne D','name'=>'Reappro_Allemagne_d','type'=>'number','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Reappro France','name'=>'Reappro_France','type'=>'number','width'=>'col-sm-10'];

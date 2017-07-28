@@ -42,7 +42,7 @@
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Commercial Id','name'=>'Commercial_id','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'cms_users,name','datatable_exception'=>'cms_users.id_cms_privileges=1'];
+			//$this->form[] = ['label'=>'Commercial Id','name'=>'Commercial_id','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'cms_users,name','datatable_exception'=>'id_cms_privileges,1'];
 			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			# OLD END FORM
 
